@@ -1,0 +1,67 @@
+<div ng-init="getAll()">
+	<h2>Lista Anime</h2>
+
+	<p>
+		<strong>Buscar:</strong><input ng-model="query">
+	</p>
+
+	<div>
+
+		<table id="table-anime-list">
+		<!-- ng-controller no permite actualizar lista (?) -->
+			<tr>
+				<td></td>
+				<td>Titulo</td>
+				<td>Puntuacion</td>
+				<td>Progreso</td>
+				<td>Tipo</td>
+				<td></td>
+			</tr>
+			<tr ng-repeat="anime in animes | filter:query track by anime.id" >
+				<td>{{$index}}</td>
+				<td><a href="#" ng-click="viewDetail(anime)">{{anime.title}}</a></td>
+				<td ng-dblclick="toggleEdit(anime)">
+					<i class="fa fa-minus-circle" ng-click="reduce(anime, 'score')"></i>
+					{{anime.score}}
+					<i class="fa fa-plus-circle" ng-click="increment(anime, 'score')"></i>
+				</td>
+				<td>
+					<i class="fa fa-minus-circle" ng-click="reduce(anime, 'current')"></i>
+					{{anime.current}}/{{anime.total}}
+					<i class="fa fa-plus-circle" ng-click="increment(anime, 'current')"></i>
+				</td>
+				<td ng-dbbclick="toggleEdit(anime, 'type')">{{anime.type}}</td>
+				<td>
+					<i class="fa fa-trash" ng-click="remove(anime)"></i>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<input type="text" ng-model="newAnime.title"/>
+				</td>
+				<td>
+					<span class="small-editor">
+						<input type="text" ng-model="newAnime.score"/>
+					</span>
+				</td>
+				<td>
+					<span class="small-editor">
+						<input type="text" ng-model="newAnime.current"/>
+						/
+						<input type="text" ng-model="newAnime.total"/>
+					</span>
+				</td>
+				<td>
+					<input type="text" ng-model="newAnime.type"/>
+				</td>
+				<td>
+					<i class="fa fa-floppy-o" ng-click="add()"></i>
+				</td>
+			</tr>
+		</table>
+		
+		<div id="item-detail" class="side-box rigth hidden transf">
+
+	</div>
+</div>

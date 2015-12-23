@@ -1,0 +1,56 @@
+body
+{
+	background: #2d2d2d;
+}
+.app
+{
+	background: #fff;
+	border: 3px solid #5d5d5d;
+	height: 100%;
+	width: 80%;
+	margin: 0 auto;
+	padding: 1em;
+}
+.app .side-box.rigth
+{
+    border: 1px dotted #008000;
+    background: #fff;
+    float: right;
+    position: absolute;
+	top: 0;
+    right: 0;
+    height: 100%;
+    width: 65%;
+}
+.app .side-box.rigth.hidden
+{
+    transform: translateX(100%);
+}
+.app .side-box.rigth.transf
+{
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition-duration: .2s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-property: transform;
+}
+
+div.app #table-anime-list
+{
+    width: 100%;
+    border: .1em dotted #3f3f3f;
+    border-collapse: collapse;
+}
+div.app #table-anime-list td
+{
+    border: .1em solid #3f3f3f;
+}
+div.app #table-anime-list input[type="text"]
+{
+    display: inline;
+    width: 100%;
+}
+div.app #table-anime-list .small-editor input[type="text"]
+{
+    max-width: 3em;
+}

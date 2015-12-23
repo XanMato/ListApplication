@@ -1,0 +1,26 @@
+{"animes" : [
+	{ 	
+		"id" : "0",
+		"title" : "One Punch Man",
+		"score": "10",
+		"current": 10,
+		"total": "12",
+		"type": "TV"	},
+	{ 
+		"id" : "1",
+		"title" : "Evangelion",
+		"score": "10",
+		"current": "22",
+		"total": "22",
+		"type": "TV"
+	},
+	{
+		"id" : "2",
+		"title" : "Kekkai Sense",
+		"score": "7",
+		"current": "12",
+		"total": "12",
+		"type": "TV"		
+	}
+	]
+}
