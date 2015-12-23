@@ -2,7 +2,9 @@ function AnimeListController($scope, $http, $routeParams, $localStorage)
 {	
 	$scope.getAll = function(){
 
-		if ( typeof  $localStorage.animes != 'undefined'){
+		$scope.c = 0;
+		if ( typeof  $localStorage.animes != 'undefined' 
+			&& $localStorage.animes != null ){
 			$scope.animes = $localStorage.animes;	
 		} else {
 			$http.get('/app/data/data.json').success(function(data){
@@ -11,6 +13,14 @@ function AnimeListController($scope, $http, $routeParams, $localStorage)
 				$scope.animes = data.animes;
 			});
 		}
+		$scope.$watch('animes', function(newValue, oldValue) 
+			{
+				APP.log('se ha modificado la lista, $scope.c : ' + $scope.c++);
+				//	APP.log('newValue: '+newValue.toString());
+				//	APP.log('oldValue: '+oldValue.toString());
+			$localStorage.animes = $scope.animes;
+			}, true
+		);
 	};
 	$scope.add = function()
 	{
@@ -65,7 +75,8 @@ function AnimeListController($scope, $http, $routeParams, $localStorage)
 
 	};
 	$scope.viewDetail = function(){
-		event.preventDefault();
+		//event.preventDefault();
+
 	}
 };
 // example : https://github.com/ccoenraets/angular-cellar

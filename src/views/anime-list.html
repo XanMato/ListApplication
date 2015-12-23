@@ -17,9 +17,9 @@
 				<td>Tipo</td>
 				<td></td>
 			</tr>
-			<tr ng-repeat="anime in animes | filter:query track by anime.id" >
+			<tr ng-repeat="anime in animes | filter:query track by anime.id	" >
 				<td>{{$index}}</td>
-				<td><a href="#" ng-click="viewDetail(anime)">{{anime.title}}</a></td>
+				<td><a href="#/anime/{{anime.id.toString()}}" ng-click="viewDetail(anime)">{{anime.title}}</a></td>
 				<td ng-dblclick="toggleEdit(anime)">
 					<i class="fa fa-minus-circle" ng-click="reduce(anime, 'score')"></i>
 					{{anime.score}}
